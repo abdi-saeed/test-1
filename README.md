@@ -41,11 +41,12 @@ buildTooltip(d, x, y) {
           this.h('svg', { attrs: {width: 150,height: 50} }, [
             this.h('line', {attrs: {x1: 6, y1: 6, x2: 144, y2: 6, stroke: '#a6b2bc', 'stroke-width': 2}
             }), 
-            this.h('circle', { attrs: { cx: 10, cy: 35, r: 5, fill: '#004fb6'} 
+            this.h('circle', { attrs: { cx: 10, cy: 35, r: 5, fill: `${d.data.color.value}`} 
             }),
             this.h('text',{attrs: {x:25, y:40, fill: 'white','font-size':'20px'}},`${d.data.qlabel.value}`)          
           ]),
-          this.h('div',{style: {'padding-left': '24px','font-size':'20px'}},`${d.data.qMeasure.value}`)
+          this.h('div',{style: {'padding-left': '24px','font-size':'18px'}},qlik_number_format(`${d.data.qMeasure.value}`,`${d.data.qMeasureFmt.value}`))
+          //`${d.data.qMeasure.value}`)
          ]
         ))      
       ];
